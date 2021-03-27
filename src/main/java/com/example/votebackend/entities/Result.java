@@ -1,19 +1,20 @@
 package com.example.votebackend.entities;
 
-import java.util.Map;
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import lombok.Data;
+
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Data
 @Entity
-public class Result {
+public class Result implements Serializable {
     @Id
-    @GeneratedValue
-    private Long id;
-
-    @ElementCollection
-    private Map<String, String> results;
+    @ManyToOne
+    @JoinColumn(name="pool_id", nullable=false)
+    private Poll poll;
+    private String token;
+    @Column(name = "choice")
+    private String option;
+    @Column(name = "choice_index")
+    private Integer option_index;
 }

@@ -1,6 +1,9 @@
 package com.example.votebackend.entities.dto;
 
+import com.example.votebackend.entities.Poll;
 import com.example.votebackend.entities.Result;
+
+import java.util.List;
 import java.util.Map;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,9 +11,9 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class ResultDto {
-    private Map<String, String> results;
+    private List<Result> results;
 
-    public ResultDto(Result result) {
-        this.results = result.getResults();
+    public ResultDto(Poll poll) {
+        this.results = poll.getResults();
     }
 }

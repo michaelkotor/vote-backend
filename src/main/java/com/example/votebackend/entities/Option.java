@@ -13,9 +13,7 @@ public class Option {
     @Id
     @GeneratedValue
     private Long id;
-
-    @ElementCollection
-    private Map<String, String> choices;
-
+    private String option;
+    private Long optionIndex;
 
 }

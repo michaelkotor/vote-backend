@@ -1,6 +1,7 @@
 package com.example.votebackend.entities.dto;
 
 import com.example.votebackend.entities.Poll;
+import com.example.votebackend.entities.Result;
 import com.example.votebackend.entities.Status;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -23,7 +24,7 @@ public class PollResultDto {
 
     private StatsDto stats;
 
-    private List<ResultDto> results;
+    private List<Result> results;
 
     private String previewLink;
 
@@ -32,11 +33,10 @@ public class PollResultDto {
         this.title = poll.getTitle();
         this.startDate = poll.getStartDate();
         this.endDate = poll.getEndDate();
-        this.question = new QuestionDto(poll.getQuestion());
+        this.question = new QuestionDto(poll);
         this.status = poll.getStatus();
         this.stats = new StatsDto(poll.getStats());
-        this.results = poll.getResults().stream().map(ResultDto::new)
-                .collect(Collectors.toList());
+        this.results = poll.getResults();
         this.previewLink = poll.getPreviewLink();
     }
 
