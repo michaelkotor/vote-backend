@@ -11,6 +11,7 @@ import org.springframework.http.HttpEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,17 +23,17 @@ public class VoteController {
 
     @GetMapping("/preview")
     public HttpEntity<PollPreviewDto> preview(Long id) {
-        return new HttpEntity(pollRepository.findById(id).orElseThrow());
+        return new HttpEntity<>(new PollPreviewDto(pollRepository.findById(id).orElseThrow()));
     }
 
     @GetMapping("/result")
     public HttpEntity<PollResultDto> result(Long id) {
-        return null;
+        return new HttpEntity<>(new PollResultDto(pollRepository.findById(id).orElseThrow()));
     }
 
     @GetMapping("/question")
     public HttpEntity<PollQuestionDto> question(Long id) {
-        return null;
+        return new HttpEntity<>(new PollQuestionDto(pollRepository.findById(id).orElseThrow()));
     }
 
     @PutMapping("/cast")
@@ -41,7 +42,7 @@ public class VoteController {
     }
 
     @PostMapping("/")
-    public Poll create(Poll poll) {
+    public Poll create(@RequestBody Poll poll) {
         pollRepository.save(poll);
         return poll;
     }
