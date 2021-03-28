@@ -5,11 +5,13 @@ import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
+import com.bazarnazar.pgjson.PGJsonObject;
 import lombok.Data;
 
 @Data
 @Entity
-public class Option {
+public class Option extends PGJsonObject {
     @Id
     @GeneratedValue
     private Long id;

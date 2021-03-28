@@ -42,6 +42,7 @@ public class VoteController {
 
     @PostMapping("/")
     public Poll create(Poll poll) {
+        System.out.println(poll.getTitle());
         return pollService.savePoll(poll);
     }
 }
