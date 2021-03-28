@@ -8,6 +8,8 @@ import com.example.votebackend.entities.dto.PollResultDto;
 import com.example.votebackend.repositories.PollRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -22,22 +24,22 @@ public class VoteController {
     private final PollRepository pollRepository;
 
     @GetMapping("/preview")
-    public HttpEntity<PollPreviewDto> preview(Long id) {
-        return new HttpEntity<>(new PollPreviewDto(pollRepository.findById(id).orElseThrow()));
+    public ResponseEntity<PollPreviewDto> preview(Long id) {
+        return new ResponseEntity<>(new PollPreviewDto(pollRepository.findById(id).orElseThrow()), HttpStatus.OK);
     }
 
     @GetMapping("/result")
-    public HttpEntity<PollResultDto> result(Long id) {
-        return new HttpEntity<>(new PollResultDto(pollRepository.findById(id).orElseThrow()));
+    public ResponseEntity<PollResultDto> result(Long id) {
+        return new ResponseEntity<>(new PollResultDto(pollRepository.findById(id).orElseThrow()), HttpStatus.OK);
     }
 
     @GetMapping("/question")
-    public HttpEntity<PollQuestionDto> question(Long id) {
-        return new HttpEntity<>(new PollQuestionDto(pollRepository.findById(id).orElseThrow()));
+    public ResponseEntity<PollQuestionDto> question(Long id) {
+        return new ResponseEntity<>(new PollQuestionDto(pollRepository.findById(id).orElseThrow()), HttpStatus.OK);
     }
 
     @PutMapping("/cast")
-    public HttpEntity<PollCastDto> cast(Long id) {
+    public ResponseEntity<PollCastDto> cast(Long id) {
         return null;
     }
 

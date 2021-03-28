@@ -1,7 +1,6 @@
 package com.example.votebackend.entities.dto;
 
 import com.example.votebackend.entities.Poll;
-import com.example.votebackend.entities.Question;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
