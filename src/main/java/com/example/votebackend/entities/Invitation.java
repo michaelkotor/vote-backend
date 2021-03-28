@@ -5,9 +5,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.validation.constraints.Email;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -16,9 +13,10 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class Invitation implements Serializable {
     @Id
-    @ManyToOne
-    @JoinColumn(name="pool_id", nullable=false)
-    private Poll pollId;
+    private Long pollId;
+   // @ManyToOne
+   // @JoinColumn(name="pool_id", nullable=false)
+    //private Poll pollId;
     //@Email
     private String email;
     private LocalDateTime votedAt;

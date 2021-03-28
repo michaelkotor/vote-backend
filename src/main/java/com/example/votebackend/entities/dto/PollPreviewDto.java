@@ -22,19 +22,23 @@ import lombok.Data;
 public class PollPreviewDto {
 
     private Long id;
+
     private String title;
     private String description;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
+
     private QuestionDto question;
+
     private Status status;
+
     private StatsDto stats;
+
     private String previewLink;
 
     public PollPreviewDto(Poll poll) {
         this.id = poll.getId();
         this.title = poll.getTitle();
-        this.description = poll.getDescription();
         this.startDate = poll.getStartDate();
         this.endDate = poll.getEndDate();
         this.question = new QuestionDto(poll);

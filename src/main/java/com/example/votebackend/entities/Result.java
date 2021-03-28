@@ -9,8 +9,8 @@ import java.io.Serializable;
 @Entity
 public class Result implements Serializable {
     @Id
-    @ManyToOne
-    @JoinColumn(name="pool_id", nullable=false)
+    private Long id;
+    @ManyToOne(cascade = CascadeType.ALL)
     private Poll poll;
     private String token;
     @Column(name = "choice")

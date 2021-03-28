@@ -1,9 +1,11 @@
 package com.example.votebackend.entities;
 
+import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
+import com.vladmihalcea.hibernate.type.json.JsonStringType;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
-import org.hibernate.annotations.TypeDefs;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -11,7 +13,8 @@ import java.util.List;
 
 @Data
 @Entity
-@TypeDefs({@TypeDef( name= "JsonObject", typeClass = Question.class)})
+@NoArgsConstructor
+@TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
 public class Poll {
     @Id
     @GeneratedValue
@@ -31,8 +34,8 @@ public class Poll {
     private LocalDateTime endDate;
 
     //TODO
-    @Type(type = "JsonObject") //не работает блеать
-    @OneToOne(cascade = CascadeType.ALL)
+    @Type(type = "jsonb")
+    @Column(columnDefinition = "jsonb")
     private Question question;
 
     @Transient

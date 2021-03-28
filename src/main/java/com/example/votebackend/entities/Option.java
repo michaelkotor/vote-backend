@@ -10,11 +10,7 @@ import com.bazarnazar.pgjson.PGJsonObject;
 import lombok.Data;
 
 @Data
-@Entity
 public class Option extends PGJsonObject {
-    @Id
-    @GeneratedValue
-    private Long id;
     private String option;
     private Long optionIndex;
 

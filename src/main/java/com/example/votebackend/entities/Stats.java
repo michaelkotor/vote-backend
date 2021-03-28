@@ -9,9 +9,7 @@ import lombok.Data;
 @Entity
 public class Stats {
     @Id
-    @GeneratedValue
     private Long id;
-
     private int total;
     private int voted;
     private int unvoted;

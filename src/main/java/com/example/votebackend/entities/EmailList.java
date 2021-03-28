@@ -2,9 +2,10 @@ package com.example.votebackend.entities;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Type;
 
-import javax.persistence.*;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -13,7 +14,6 @@ import java.util.List;
 @NoArgsConstructor
 public class EmailList {
     @Id
-    @GeneratedValue
     private int id;
     private String title;
     @ElementCollection
