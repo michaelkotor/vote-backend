@@ -1,4 +1,4 @@
-package com.example.votebackend.entities;
+package com.example.votebackend.entities.poll;
 
 import java.util.List;
 import javax.persistence.CascadeType;

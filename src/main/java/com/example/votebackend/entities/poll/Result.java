@@ -1,4 +1,4 @@
-package com.example.votebackend.entities;
+package com.example.votebackend.entities.poll;
 
 import java.util.Map;
 import javax.persistence.ElementCollection;
@@ -15,5 +15,5 @@ public class Result {
     private Long id;
 
     @ElementCollection
-    private Map<String, String> results;
+    private Map<String, Integer> results;
 }

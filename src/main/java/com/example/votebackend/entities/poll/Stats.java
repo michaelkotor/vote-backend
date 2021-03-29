@@ -1,4 +1,4 @@
-package com.example.votebackend.entities;
+package com.example.votebackend.entities.poll;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

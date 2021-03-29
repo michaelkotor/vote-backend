@@ -1,4 +1,4 @@
-package com.example.votebackend.entities.dto;
+package com.example.votebackend.entities.dto.vote;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
